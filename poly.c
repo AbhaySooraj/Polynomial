@@ -10,12 +10,10 @@ struct node
 
 struct node *p1=NULL,*p2=NULL,*p3=NULL;
 
-void cstruct(struct node *p)
+void cstruct(struct node *p,int size)
 {
-	int size,i;
-	printf("Enter the highest term :");
-	scanf("%d",&size);
-	for(i=size;i>0;i--)
+	int i;
+	for(i=size+1;i>0;i--)
 	{
 		printf("Enter coefficient of %d term :",i);
 		scanf("%d",&p->coefficient);
@@ -92,25 +90,28 @@ void display(struct node *p)
 		
 void main()
 {
+	int x;
+	printf("Enter the highest power :");
+	scanf("%d",&x);
 	p1=(struct node*)malloc(sizeof(struct node));
 	p2=(struct node*)malloc(sizeof(struct node));
 	p3=(struct node*)malloc(sizeof(struct node));
 	
-	printf("\nPolynomial expression 1 \n");
-	cstruct(p1);
+	printf("\nPolynomial 1 \n");
+	cstruct(p1,x);
 	
-	printf("Polynomial expression 1:   ");
+	printf("Polynomial 1:   ");
 	display(p1);
 	printf("\n");
 
-	printf("\nPolynomial expression 2 \n");
-	cstruct(p2);
-	printf("Polynomial expression 2:   ");
+	printf("\nPolynomial 2 \n");
+	cstruct(p2,x);
+	printf("Polynomial 2:   ");
 	display(p2);
 	printf("\n");
 
 	add(p1,p2,p3); 
-	printf("\nSum is:   ");
+	printf("\nThe sum is:   ");
 	display(p3); 
 	printf("\n");               		
            
